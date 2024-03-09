@@ -2,4 +2,5 @@
 
 ### Apk Comming Soon ..!
 
-![alt Calculator](public/image.png)
+![Calculator](public/image.png)
+
