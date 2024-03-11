@@ -29,7 +29,7 @@ const InputSelections = ({ onChangeValue, list, onAnswer }) => {
         Del
       </div>
       <div className='box' id='pattern' onClick={e => getInputValues(e.target.textContent)}>
-        %
+        x<sup>2</sup>
       </div>
       <div className='box' id='calculations' onClick={e => getInputValues(e.target.textContent)}>
         /

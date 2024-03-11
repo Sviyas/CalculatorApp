@@ -1,17 +1,36 @@
+import * as math from 'mathjs';
+
+const bodmas = input => {
+  const result = math.evaluate(input.join(''));
+
+  return result;
+};
+
 /**
  * @param {number} a
  * @param {number} b
  * @param {string} pattern
  * @returns Returns the Answers
  */
-const basicArithmeticCalculations = (a, b, pattern) => {
+export const basicArithmeticCalculations = (a, b, pattern) => {
   let result = null;
 
   switch (pattern) {
     case '+':
       result = a + b;
       break;
-
+    case '-':
+      result = a - b;
+      break;
+    case '*':
+      result = a * b;
+      break;
+    case '/':
+      result = a / b;
+      break;
+    case 'x2':
+      result = a * a;
+      break;
     default:
       console.log('assign bodmas functions');
   }
@@ -28,14 +47,14 @@ const processMathOperatiosn = input => {
     // ? set the default values
     if (input?.length === 0 || input === undefined) return 0;
 
-    const patterns = ['+', '-', '*', '/', '%'];
+    const patterns = ['+', '-', '*', '/'];
 
     // ? identify the pattern
     const fetchCalcPattern = input.filter(e => patterns.includes(e));
 
     // ? if the inputs are bodmas contains
     if (fetchCalcPattern.length > 1) {
-      console.log('BoadMas theorm need to implemented');
+      return bodmas(input);
     } else {
       // ? extract the input values using pattern
       const [num1, num2] = input.join('').split(fetchCalcPattern[0]);

@@ -2,6 +2,10 @@
 import '../App.css';
 
 export default function Display({ value, answers }) {
+  if (value.length > 0 && value.includes('x2')) {
+    value.pop();
+  }
+
   // ? default value
   const answer = answers ?? 0;
   return (

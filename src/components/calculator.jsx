@@ -3,7 +3,11 @@ import '../App.css';
 import InputSelections from './pattern';
 import { useState } from 'react';
 import onDelete from './events';
+import { basicArithmeticCalculations } from './functions';
 
+/**
+ * @returns Mainn Components of Calculators
+ */
 export default function CalculatorApp() {
   // ? users inputs store memory
   const [input, setInput] = useState([]);
@@ -20,6 +24,7 @@ export default function CalculatorApp() {
     // C = DeleteALL  , if contains delete all the inputs
     if (value === 'C') {
       setInput([]);
+      setAnswers();
 
       return;
     }
@@ -32,6 +37,16 @@ export default function CalculatorApp() {
       setInput([...result]);
 
       return;
+    }
+
+    // if sequare root is contains
+    if (value === 'x2') {
+      // ? validating the square root
+      const sequareRt = input.join('');
+
+      const sqRoot = basicArithmeticCalculations(sequareRt, '', 'x2');
+
+      setAnswers(sqRoot);
     }
 
     // Display the Values
