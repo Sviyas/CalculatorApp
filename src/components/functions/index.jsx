@@ -17,19 +17,19 @@ export const basicArithmeticCalculations = (a, b, pattern) => {
 
   switch (pattern) {
     case '+':
-      result = a + b;
+      result = Math.floor(a + b);
       break;
     case '-':
-      result = a - b;
+      result = Math.floor(a - b);
       break;
     case '*':
-      result = a * b;
+      result = Math.floor(a * b);
       break;
     case '/':
-      result = a / b;
+      result = Math.floor(a / b);
       break;
     case 'x2':
-      result = a * a;
+      result = Math.floor(a * a);
       break;
     default:
       console.log('assign bodmas functions');
