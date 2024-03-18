@@ -16,6 +16,8 @@ const InputSelections = ({ onChangeValue, list, onAnswer }) => {
   const calculate = () => {
     const result = processMathOperatiosn(list);
 
+    console.log('result fetched :>> ', result);
+
     // ? update the answer on parent state
     onAnswer(result);
   };

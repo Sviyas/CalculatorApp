@@ -1,9 +1,39 @@
 import * as math from 'mathjs';
 
 const bodmas = input => {
-  const result = math.evaluate(input.join(''));
+  const expressions = input.join('');
 
-  return result;
+  // console.log('expressions :>> ', expressions);
+
+  const result = math.evaluate(expressions);
+  try {
+    if (result) {
+      return result;
+    }
+
+    if (!result) {
+      const pattern = ['+', '-', '*', '/'];
+
+      const newVal = input.filter(va => {
+        return pattern.includes(va);
+      });
+
+      const rmVal = newVal.slice(0, newVal.length - 1);
+      console.log(rmVal);
+
+      const exactPattern = input.filter(p => {
+        const rmPatterns = rmVal.includes(p);
+        if (!rmPatterns) return p;
+      });
+
+      const result = Math.floor(math.evaluate(exactPattern.join('')));
+
+      console.log('result :>> ', result);
+    }
+  } catch (error) {
+    console.log('error  on bodmas:>> ', error.message);
+    return null;
+  }
 };
 
 /**
